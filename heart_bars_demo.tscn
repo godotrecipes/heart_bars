@@ -1,0 +1,86 @@
+[gd_scene load_steps=5 format=3 uid="uid://ck6dqom2ftda3"]
+
+[ext_resource type="Script" path="res://heart_bars_demo.gd" id="1_2txxt"]
+[ext_resource type="PackedScene" uid="uid://dfsgq8qhrf3h7" path="res://heart_bar.tscn" id="1_r65mu"]
+[ext_resource type="FontFile" uid="uid://7vxmt1ybj3vi" path="res://assets/Roboto-Regular.ttf" id="2_elewm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bl27o"]
+font = ExtResource("2_elewm")
+font_size = 32
+
+[node name="HeartBarsDemo" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2txxt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Bars" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="HeartBar" parent="VBoxContainer/HBoxContainer/Bars" instance=ExtResource("1_r65mu")]
+layout_mode = 2
+
+[node name="HeartBar2" parent="VBoxContainer/HBoxContainer/Bars" instance=ExtResource("1_r65mu")]
+layout_mode = 2
+mode = 1
+
+[node name="HeartBar3" parent="VBoxContainer/HBoxContainer/Bars" instance=ExtResource("1_r65mu")]
+layout_mode = 2
+mode = 2
+
+[node name="Labels" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Labels"]
+layout_mode = 2
+text = "simple"
+label_settings = SubResource("LabelSettings_bl27o")
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/Labels"]
+layout_mode = 2
+text = "empty"
+label_settings = SubResource("LabelSettings_bl27o")
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/Labels"]
+layout_mode = 2
+text = "partial
+"
+label_settings = SubResource("LabelSettings_bl27o")
+
+[node name="Buttons" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 75
+
+[node name="AddButton" type="Button" parent="VBoxContainer/HBoxContainer/Buttons"]
+custom_minimum_size = Vector2(100, 2.08165e-12)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_elewm")
+theme_override_font_sizes/font_size = 48
+text = "+1"
+
+[node name="SubtractButton" type="Button" parent="VBoxContainer/HBoxContainer/Buttons"]
+custom_minimum_size = Vector2(100, 2.08165e-12)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_elewm")
+theme_override_font_sizes/font_size = 48
+text = "-1"
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Current Health: 5"
+label_settings = SubResource("LabelSettings_bl27o")
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Buttons/AddButton" to="." method="_on_add_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Buttons/SubtractButton" to="." method="_on_subtract_button_pressed"]
