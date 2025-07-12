@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ck6dqom2ftda3"]
 
-[ext_resource type="Script" path="res://heart_bars_demo.gd" id="1_2txxt"]
+[ext_resource type="Script" uid="uid://bri0hc5trvqoo" path="res://heart_bars_demo.gd" id="1_2txxt"]
 [ext_resource type="PackedScene" uid="uid://dfsgq8qhrf3h7" path="res://heart_bar.tscn" id="1_r65mu"]
 [ext_resource type="FontFile" uid="uid://7vxmt1ybj3vi" path="res://assets/Roboto-Regular.ttf" id="2_elewm"]
 
